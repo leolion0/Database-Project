@@ -27,7 +27,7 @@ public class CoolCarsProject extends Application {
             
             @Override
             public void handle(ActionEvent event) {
-                System.out.println("Hello World!");
+                 SQLConnection con = new SQLConnection();
             }
         });
         
@@ -46,6 +46,7 @@ public class CoolCarsProject extends Application {
      */
     public static void main(String[] args) {
         launch(args);
+       
     }
     
 }
