@@ -35,8 +35,9 @@ public class ui extends Application {
                 System.out.println("Hello World!");
             }
         });
-
+        
         //Name column
+        TableView<Location> locationTable = new TableView<>();
         TableColumn<Location, String> nameColumn = new TableColumn<>("Store ID");
         nameColumn.setMinWidth(200);
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("store_id"));
@@ -44,7 +45,6 @@ public class ui extends Application {
         TableColumn<Location, String> addrColumn = new TableColumn<>("Address");
         nameColumn.setMinWidth(200);
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("address"));
-
 
 
 
