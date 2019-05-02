@@ -1,26 +1,16 @@
 package coolcarsproject;
-import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
-
 
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.geometry.Insets;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 import java.sql.ResultSet;
@@ -35,12 +25,9 @@ public class ui extends Application {
         ResultSet res = Querier.q("Select * from Location;");
 
         try{
-
-
         while (res.next()){
             locList.add(new Location(res.getInt(1),res.getObject(2).toString(),res.getObject(3).toString(),
                     res.getInt(4)));
-
         }
         }
         catch (Exception e){System.out.println(e);}
