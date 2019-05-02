@@ -23,7 +23,35 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import java.sql.ResultSet;
+
 public class ui extends Application {
+
+
+
+    public ObservableList<Location> getLocation(){
+        ObservableList<Location> locList = FXCollections.observableArrayList();
+        SQLConnection Querier = new SQLConnection();
+        ResultSet res = Querier.q("Select * from Location;");
+
+        try{
+
+
+        while (res.next()){
+            locList.add(new Location(res.getInt(1),res.getObject(2).toString(),res.getObject(3).toString(),
+                    res.getInt(4)));
+
+        }
+        }
+        catch (Exception e){System.out.println(e);}
+
+        System.out.println(locList.get(0).getPhoneNumber());
+        return locList;
+
+
+
+
+    }
     @Override
     public void start(Stage primaryStage) {
         Button btn = new Button();
@@ -34,7 +62,10 @@ public class ui extends Application {
             public void handle(ActionEvent event) {
                 System.out.println("Hello World!");
             }
+
         });
+
+
         
         //Name column
         TableView<Location> locationTable = new TableView<>();

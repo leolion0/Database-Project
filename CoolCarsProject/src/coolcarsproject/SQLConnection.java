@@ -13,9 +13,26 @@ import java.util.Scanner;
 public class SQLConnection {
     private static final String USERNAME = "root";
     private static final String PASSWORD = "";
-    private static final String CONN_STRING = "jdbc:mysql://localhost:3306/coolcars";
+    private static final String CONN_STRING = "jdbc:mysql://localhost:3307/coolcars";
+
+    public ResultSet q(String s){
+         ResultSet result = null;
+
+         try {
+             Statement stmt = conn.createStatement();
+             result = stmt.executeQuery(s);
+         }
+         catch (Exception e){System.out.println(e);}
+
+        return result;
+    }
+
+    private ResultSet result;
+
+
     Connection conn = null;
     Scanner in = new Scanner(System.in);
+
     public SQLConnection(){
         
         try {
